@@ -1,8 +1,43 @@
+import {
+  useDisclosure,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+} from '@chakra-ui/react';
 import React from 'react';
 
-type CreateCommunityModalProps = {};
+type CreateCommunityModalProps = {
+  open: boolean;
+  handleClose: () => void;
+};
 
-const CreateCommunityModal: React.FC<CreateCommunityModalProps> = () => {
-  return <div>Community Modal</div>;
+const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
+  open,
+  handleClose,
+}) => {
+  return (
+    <>
+      <Modal isOpen={open} onClose={handleClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>here is modal body</ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="ghost">Secondary Action</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
+  );
 };
 export default CreateCommunityModal;
