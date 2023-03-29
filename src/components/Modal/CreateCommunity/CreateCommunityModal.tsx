@@ -198,7 +198,10 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
               onClick={handleClose}>
               Cancel
             </Button>
-            <Button height="30px" onClick={() => {}}>
+            <Button
+              height="30px"
+              onClick={handleCreateCommunity}
+              isLoading={loading}>
               Create community
             </Button>
           </ModalFooter>
