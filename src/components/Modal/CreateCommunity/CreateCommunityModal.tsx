@@ -27,8 +27,11 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
   const [charsRemaining, setCharsRemaining] = useState(21);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.value.length > 21) return;
+
     setCommunityName(event.target.value);
     //recalculate how many chars we have left in the name
+    setCharsRemaining(21 - event.target.value.length);
   };
   return (
     <>
