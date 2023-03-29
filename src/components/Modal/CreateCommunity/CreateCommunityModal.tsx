@@ -11,6 +11,8 @@ import {
   Divider,
   Text,
   Input,
+  Stack,
+  Checkbox,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
@@ -75,6 +77,17 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
                 color={charsRemaining === 0 ? 'red' : 'gray.500'}>
                 {charsRemaining}Characters remaining
               </Text>
+              <Box mt={4} mb={4}>
+                <Text fontWeight={600} fontSize={15}>
+                  Community Type
+                </Text>
+                {/* checkbox */}
+                <Stack spacing={2}>
+                  <Checkbox>Public</Checkbox>
+                  <Checkbox>Restricted</Checkbox>
+                  <Checkbox>Private</Checkbox>
+                </Stack>
+              </Box>
             </ModalBody>
           </Box>
 
