@@ -143,11 +143,17 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
             </ModalBody>
           </Box>
 
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={handleClose}>
-              Close
+          <ModalFooter bg="gray.100" borderRadius="0px 0px 10px 10px">
+            <Button
+              variant="outline"
+              height="30px"
+              mr={3}
+              onClick={handleClose}>
+              Cancel
             </Button>
-            <Button variant="ghost">Create community</Button>
+            <Button height="30px" onClick={() => {}}>
+              Create community
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
