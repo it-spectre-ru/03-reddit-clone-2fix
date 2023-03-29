@@ -70,7 +70,7 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
                 pl="22px"
                 onChange={handleChange}
               />
-              <Text>{21}Characters remaining</Text>
+              <Text>{charsRemaining}Characters remaining</Text>
             </ModalBody>
           </Box>
 
