@@ -13,6 +13,7 @@ import {
   Input,
   Stack,
   Checkbox,
+  Flex,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
@@ -94,19 +95,30 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
                     name="public"
                     isChecked={communityType === 'public'}
                     onChange={onCommunityTypeChange}>
-                    Public
+                    <Flex align="center">
+                      <Text fontSize="10pt" mr={1}>
+                        Public
+                      </Text>
+                      <Text fontSize="8pt" color="gray.500" pt={1}>
+                        Anyone can view, post and comment to this community
+                      </Text>
+                    </Flex>
                   </Checkbox>
                   <Checkbox
                     name="restricted"
                     isChecked={communityType === 'restricted'}
                     onChange={onCommunityTypeChange}>
-                    Restricted
+                    <Text fontSize="10pt" mr={1}>
+                      Restricted
+                    </Text>
                   </Checkbox>
                   <Checkbox
                     name="private"
                     isChecked={communityType === 'private'}
                     onChange={onCommunityTypeChange}>
-                    Private
+                    <Text fontSize="10pt" mr={1}>
+                      Privates
+                    </Text>
                   </Checkbox>
                 </Stack>
               </Box>
