@@ -27,6 +27,7 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
 }) => {
   const [communityName, setCommunityName] = useState('');
   const [charsRemaining, setCharsRemaining] = useState(21);
+  const [communityType, setCommunityType] = useState('public');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.value.length > 21) return;
@@ -34,6 +35,12 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
     setCommunityName(event.target.value);
     //recalculate how many chars we have left in the name
     setCharsRemaining(21 - event.target.value.length);
+  };
+
+  const onCommunityTypeChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setCommunityType(event.target.name);
   };
   return (
     <>
@@ -83,9 +90,24 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
                 </Text>
                 {/* checkbox */}
                 <Stack spacing={2}>
-                  <Checkbox>Public</Checkbox>
-                  <Checkbox>Restricted</Checkbox>
-                  <Checkbox>Private</Checkbox>
+                  <Checkbox
+                    name="public"
+                    isChecked={communityType === 'public'}
+                    onChange={onCommunityTypeChange}>
+                    Public
+                  </Checkbox>
+                  <Checkbox
+                    name="restricted"
+                    isChecked={communityType === 'restricted'}
+                    onChange={onCommunityTypeChange}>
+                    Restricted
+                  </Checkbox>
+                  <Checkbox
+                    name="private"
+                    isChecked={communityType === 'private'}
+                    onChange={onCommunityTypeChange}>
+                    Private
+                  </Checkbox>
                 </Stack>
               </Box>
             </ModalBody>
